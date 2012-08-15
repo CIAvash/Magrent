@@ -1,0 +1,76 @@
+* {
+    margin: 0;
+    pading: 0;
+}
+
+body {
+    background: -moz-linear-gradient(top, #ffffff 0%, #f6f6f6 47%, #ededed 100%) no-repeat;
+    background: linear-gradient(to bottom, #ffffff 0%,#f6f6f6 47%,#ededed 100%) no-repeat;
+    font-family: Arial;
+    color: #000;
+    height: 100%;
+    overflow: hidden;
+}
+
+#wrapper {
+    margin: 10px 10px 0;
+    overflow: hidden;
+}
+
+h4 {
+    font-size: 19px;
+    font-weight: bold;
+    margin: 5px 0 0 10px;
+    color: #EB4823;
+}
+
+input {
+    margin: 10px 0 10px 10px;
+}
+
+input[type=text] {
+    width: 450px;
+    padding: 5px;
+    color: #1DAD4F;
+    font-size: 14px;
+}
+
+input[type=submit] {
+    background: #1dad4f;
+    color: white;
+    padding: 4px 3px;
+    font-size: 15px;
+    font-weight: bold;
+    border: 0;
+    box-shadow: 0 0 2px green;
+    cursor: pointer;
+}
+
+#result {
+    display: none;
+    font-size: 15px;
+    margin: 10px;
+    color: #555;
+}
+
+p {
+    margin: 10px 5px;
+}
+
+.torrentName {
+    color: #EB4823;
+    display: block;
+    width: 550px;
+    height: 17px;
+    overflow: hidden;
+}
+
+.torrentLink {
+    color: green;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: capitalize;
+    border-bottom: 1px solid;
+    margin-right: 5px;
+}

@@ -1,0 +1,9 @@
+{
+    "name": "magrent", 
+    "license": "MPL 2.0", 
+    "author": "Siavash Askari Nasr", 
+    "version": "0.1", 
+    "fullName": "Magrent", 
+    "id": "jid1-9tZMAIdeuiEjHg", 
+    "description": "This add-on converts magnet links and URIs to torrent files. It uses torrent cache sites like Torrage.com for downloading torrent files."
+}
