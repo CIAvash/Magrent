@@ -8,7 +8,7 @@ $('form').submit(function() {
         let torrentLinks = '';
         // Building torrent download links
         for(let i=0; i<torrentSites.length; i++) {
-            torrentLinks += '<a target="_blank" class="torrentLink" href="http://' + torrentSites[i] + '/torrent/' + torrent.hash + '.torrent">' + torrentSites[i] + '</a>\n';
+            torrentLinks += '<a target="_blank" class="torrentLink" href="http://' + escapeHTML(torrentSites[i]) + '/torrent/' + escapeHTML(torrent.hash) + '.torrent">' + escapeHTML(torrentSites[i]) + '</a>\n';
         }
         showResult('<p>' + (!torrent.name ? '.torrent file' : '<span class="torrentName"></span>') + '</p>\n<p>' + torrentLinks + '</p>\n');
         // If torrent has a name
