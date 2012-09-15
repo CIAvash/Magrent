@@ -60,9 +60,9 @@ p {
 .torrentName {
     color: #EB4823;
     display: block;
-    width: 550px;
-    height: 17px;
+    white-space: nowrap;
     overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .torrentLink {

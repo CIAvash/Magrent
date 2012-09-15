@@ -12,17 +12,10 @@ $('form').submit(function() {
         }
         showResult('<p>' + (torrent.length === 1 ? '.torrent file' : '<span class="torrentName"></span>') + '</p>\n<p>' + torrentLinks + '</p>\n');
         // If torrent has a name
-        if(torrent.length === 2) $('.torrentName').text(shortener(decodeURIComponent(torrent[1])));
+        if(torrent.length === 2) $('.torrentName').text(decodeURIComponent(torrent[1]));
     } else showResult('<p>Enter a valid magnet URI</p>');
     return false;
 });
-
-function shortener(str) {
-    if(str.length > 70)
-        return str.substr(0, 70) + '...';
-    else
-        return str;
-}
 
 function showResult(result) {
     $('#result').html(result);
