@@ -30,9 +30,9 @@ function magrent(magnet, name) {
         let magnetName = magNamePattern.exec(magnet);
         if(magnetName) {
             magnetName[1] = magnetName[1].replace(/(?:\+|\.)+/g, ' ');
-            return [hash[1], magnetName[1]];
+            return { hash: hash[1], name: magnetName[1] };
         } else name = false;
     }
-    if(hash && !name) return [hash[1]];
+    if(hash && !name) return { hash: hash[1] };
     return false;
 }

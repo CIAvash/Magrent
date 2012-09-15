@@ -8,11 +8,11 @@ $('form').submit(function() {
         let torrentLinks = '';
         // Building torrent download links
         for(let i=0; i<torrentSites.length; i++) {
-            torrentLinks += '<a target="_blank" class="torrentLink" href="http://' + torrentSites[i] + '/torrent/' + torrent[0] + '.torrent">' + torrentSites[i] + '</a>\n';
+            torrentLinks += '<a target="_blank" class="torrentLink" href="http://' + torrentSites[i] + '/torrent/' + torrent.hash + '.torrent">' + torrentSites[i] + '</a>\n';
         }
-        showResult('<p>' + (torrent.length === 1 ? '.torrent file' : '<span class="torrentName"></span>') + '</p>\n<p>' + torrentLinks + '</p>\n');
+        showResult('<p>' + (!torrent.name ? '.torrent file' : '<span class="torrentName"></span>') + '</p>\n<p>' + torrentLinks + '</p>\n');
         // If torrent has a name
-        if(torrent.length === 2) $('.torrentName').text(decodeURIComponent(torrent[1]));
+        if(torrent.name) $('.torrentName').text(decodeURIComponent(torrent.name));
     } else showResult('<p>Enter a valid magnet URI</p>');
     return false;
 });
