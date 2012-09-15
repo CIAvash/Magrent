@@ -2,7 +2,7 @@ Description
 -----------
 
 Magrent is a Firefox add-on that enables you to convert magnet links and URIs to torrent files.
-It uses torrent cache sites like Torrage.com for downloading torrent files.
+It uses torrent caching sites like Torrage.com for downloading torrent files.
 
 This add-on is useful when you have the magnet URI and want the torrent file or when your are using sites like The Pirate Bay which only provide the magnet links.
 
