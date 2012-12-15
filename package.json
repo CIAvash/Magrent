@@ -5,5 +5,32 @@
     "version": "0.2",
     "fullName": "Magrent",
     "id": "jid1-9tZMAIdeuiEjHg",
-    "description": "This add-on converts magnet links and URIs to torrent files. It uses torrent cache sites like Torrage.com for downloading torrent files."
+    "description": "This add-on converts magnet links and URIs to torrent files. It uses torrent caching sites like Torrage.com for downloading torrent files.",
+    "preferences": [
+        {
+            "name": "torrentSource",
+            "type": "menulist",
+            "title": "Default torrent source",
+            "description": "Will be used in 'Download .torrent file' context menu item",
+            "value": "torrage.com",
+            "options": [
+                {
+                    "value": "torrage.com",
+                    "label": "Torrage.com"
+                },
+                {
+                    "value": "zoink.it",
+                    "label": "Zoink.it"
+                },
+                {
+                    "value": "torcache.net",
+                    "label": "Torcache.net"
+                },
+                {
+                    "value": "torrage.ws",
+                    "label": "Torrage.ws"
+                }
+            ]
+        }
+    ]
 }
