@@ -8,7 +8,7 @@ This add-on is useful when you have the magnet URI and want the torrent file or 
 
 Magrent has 2 context menu items and a widget which is accessible from the Add-on Bar.
 
-"Download .torrent file" context menu item appears when you right-click on a magnet link; This item will download the torrent from torrage.com(if the torrent is available).
+"Download .torrent file" context menu item appears when you right-click on a magnet link; This item will download the torrent from torrage.com(if the torrent is available). You can change the default torrent source from Preferences/Options.
 
 Clicking on the add-on's button(widget) will open a panel for coverting magnet URI to torrent file. It checks your clipboard content and if it recognized a magnet URI it will convert the magnet URI automatically and show the download links.
 
