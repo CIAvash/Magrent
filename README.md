@@ -15,14 +15,13 @@ Magrent has 2 context menu items and a widget which is accessible from the Add-o
 
 Clicking on the add-on's button(widget) will open a panel for coverting magnet URI to torrent file. It checks your clipboard content and if it recognized a magnet URI it will convert the magnet URI automatically and show the download links.
 
-Download links are from Torrage.com, Zoink.it, Torcache.net and Torrage.ws.
+Download links are from Torrage.com, Zoink.it and Torcache.net.
 
 "Open in Magrent panel" is another context menu item which opens the magnet link in the panel and shows its download links.
 
 Notes
 -----
 * Torrents may not be available; More sources are provided so that you can try them if one source is down or doesn't have the requested torrent file.
-* It seems if torrage.ws doesn't have the torrent file on its server, it redirects you to torrage.com.
 
 Credits
 -------
