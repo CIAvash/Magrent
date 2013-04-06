@@ -4,7 +4,7 @@ $('form').submit(function() {
     let torrent = magrent(magnet, true);
     if(torrent) {
         // List of torrent cache sites
-        let torrentSites = ['torrage.com', 'zoink.it', 'torcache.net', 'torrage.ws'];
+        let torrentSites = ['torrage.com', 'zoink.it', 'torcache.net'];
         let torrentLinks = '';
         // Building torrent download links
         for(let i=0; i<torrentSites.length; i++) {
