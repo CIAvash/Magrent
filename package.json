@@ -5,6 +5,9 @@
     "version": "0.3.2",
     "fullName": "Magrent",
     "id": "jid1-9tZMAIdeuiEjHg",
+    "permissions": {
+        "private-browsing": true
+    },
     "description": "This add-on converts magnet links and URIs to torrent files. It uses torrent caching sites like Torrage.com for downloading torrent files.",
     "preferences": [
         {

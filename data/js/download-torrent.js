@@ -1,5 +1,10 @@
 self.on("click", function (node, data) {
-    let torrent = magrent(node.href);
-    if(torrent)
-        window.open('http://' + escapeHTML(data) + '/torrent/' + escapeHTML(torrent.hash) + '.torrent');
+    let torrent = magrent(node.href, true);
+    if (torrent) {
+        self.postMessage({
+            name: torrent.name ? decodeURIComponent(torrent.name) : '',
+            hash: torrent.hash,
+            url: 'http://' + data + '/torrent/' + torrent.hash + '.torrent'
+        });
+    }
 });
