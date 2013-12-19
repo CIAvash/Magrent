@@ -47,7 +47,6 @@ input[type=submit] {
 }
 
 #result {
-    display: none;
     font-size: 15px;
     margin: 10px;
     color: #555;
@@ -57,7 +56,7 @@ p {
     margin: 10px 5px;
 }
 
-.torrentName {
+#torrentName {
     color: #EB4823;
     display: block;
     white-space: nowrap;
@@ -73,4 +72,18 @@ p {
     text-transform: capitalize;
     border-bottom: 1px solid;
     margin-right: 5px;
+}
+
+.fade-in {
+    animation: fade-in 1s;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
