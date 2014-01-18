@@ -1,13 +1,17 @@
 * {
     margin: 0;
     pading: 0;
+    -moz-box-sizing: border-box;
+}
+
+html {
+    height: 100%;
 }
 
 body {
     background: linear-gradient(to bottom, #ffffff 0%,#f6f6f6 47%,#ededed 100%) no-repeat;
     font-family: Arial;
     color: #000;
-    height: 100%;
     overflow: hidden;
 }
 
@@ -16,7 +20,7 @@ body {
     overflow: hidden;
 }
 
-h4 {
+h1 {
     font-size: 19px;
     font-weight: bold;
     margin: 5px 0 0 10px;
