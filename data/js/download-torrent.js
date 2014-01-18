@@ -1,5 +1,5 @@
 self.on('click', function (node, data) {
-    let torrent = magrent(node.href, true);
+    let torrent = magrent(node.href);
     if (torrent) {
         self.postMessage({
             name: (torrent.name ? decodeURIComponent(torrent.name) : torrent.hash) + '.torrent',

@@ -9,7 +9,7 @@ let showResult = output => {
 
 form.addEventListener('submit', function (e) {
     let magnet = magnetInput.value;
-    let torrent = magrent(magnet, true);
+    let torrent = magrent(magnet);
     if (torrent) {
         // List of torrent cache services
         let torrentSites = ['torrage.com', 'zoink.it', 'torcache.net'];
