@@ -1,4 +1,4 @@
-self.on("click", function (node, data) {
+self.on('click', function (node, data) {
     let torrent = magrent(node.href, true);
     if (torrent) {
         self.postMessage({

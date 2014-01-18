@@ -5,23 +5,17 @@ let submitBtn = document.getElementById('submit');
 
 let showResult = output => {
     result.innerHTML = output;
-    // result.style.opacity = 1;
-    // result.classList.remove('fade-out');
-    // result.classList.add('fade-in');
 };
 
-form.addEventListener('submit', function(e) {
-    // result.style.opacity = 0;
-    // result.classList.remove('fade-in');
-    // result.classList.add('fade-out');
+form.addEventListener('submit', function (e) {
     let magnet = magnetInput.value;
     let torrent = magrent(magnet, true);
     if (torrent) {
-        // List of torrent cache sites
+        // List of torrent cache services
         let torrentSites = ['torrage.com', 'zoink.it', 'torcache.net'];
         let torrentLinks = '';
         // Building torrent download links
-        for(let i=0; i<torrentSites.length; i++) {
+        for (let i=0, sitesCount=torrentSites.length; i<sitesCount; i++) {
             torrentLinks += '<a target="_blank" class="torrentLink" href="http://' +
                 escapeHTML(torrentSites[i]) +
                 '/torrent/' +
@@ -62,13 +56,13 @@ result.addEventListener('click', function (e) {
     e.preventDefault();
 });
 
-self.port.on('convert', function(magnet) {
-    if(magnetInput.value !== magnet) {
+self.port.on('convert', function (magnet) {
+    if (magnetInput.value !== magnet) {
         magnetInput.value = magnet;
         submitBtn.click();
     }
 });
 
-self.port.on('focus', function() {
+self.port.on('focus', function () {
     magnetInput.focus();
 });
