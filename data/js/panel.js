@@ -54,8 +54,7 @@ result.addEventListener('click', function (e) {
     if (e.target.classList.contains('torrentLink')) {
         let data = e.target.dataset;
         self.port.emit('downloadTorrent', {
-            name: data.name ? decodeURIComponent(data.name) : '',
-            hash: data.hash,
+            name: (data.name ? decodeURIComponent(data.name) : data.hash) + '.torrent',
             url: e.target.href
         });
     }
