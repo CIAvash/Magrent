@@ -20,32 +20,26 @@ body {
     overflow: hidden;
 }
 
-h1 {
-    font-size: 19px;
-    font-weight: bold;
-    margin: 5px 0 0 10px;
-    color: #EB4823;
-}
-
 input {
+    font-family: Arial;
     margin: 10px 0 10px 10px;
 }
 
 input[type=text] {
     width: 450px;
     padding: 5px;
-    color: #1DAD4F;
-    font-size: 14px;
+    color: #EB4823;
+    font-size: 16px;
+    font-weight: bold;
 }
 
 input[type=submit] {
     background: #1dad4f;
     color: white;
-    padding: 4px 3px;
+    padding: 6px 3px;
     font-size: 15px;
     font-weight: bold;
     border: 0;
-    box-shadow: 0 0 2px green;
     cursor: pointer;
 }
 

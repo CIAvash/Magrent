@@ -14,7 +14,7 @@ const base16 = new Nibbler({
 
 const magrent = magnet => {
     // Pattern for matching Bittorrent info hash
-    let hashPattern = /xt=urn:btih:([a-f0-9]{40}|[a-z2-7]{32})/i;
+    let hashPattern = /(?:xt=urn:btih:)?([a-f0-9]{40}|[a-z2-7]{32})/i;
     let hash = hashPattern.exec(magnet);
     if (hash) {
         hash[1] = hash[1].toUpperCase();

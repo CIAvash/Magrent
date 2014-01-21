@@ -38,7 +38,7 @@ form.addEventListener('submit', function (e) {
             document.getElementById('torrentName').textContent = decodeURIComponent(torrent.name);
     }
     else {
-        showResult('<p class="fade-in">Enter a valid magnet URI</p>');
+        showResult('<p class="fade-in">Enter a valid hash or Magnet URI</p>');
     }
 
     e.preventDefault();
