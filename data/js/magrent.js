@@ -25,12 +25,16 @@ const magrent = magnet => {
         // Pattern for matching display name in magnet URI
         let magNamePattern = /dn=(.+?)(?=(?:&\w+=)|$)/m;
         let magnetName = magNamePattern.exec(magnet);
-        if (magnetName)
-            magnetName[1] = magnetName[1].replace(/(?:\+|\.)+/g, ' ');
+        let torrentName = '', fileName = '';
+        if (magnetName) {
+            torrentName = magnetName[1].replace(/(?:\+|\.)+/g, ' ');
+            fileName = magnetName[1].replace(/[+|:\\/*?<>]+/g, '.');
+        }
 
         return {
             hash: hash[1],
-            name: magnetName ? magnetName[1] : null
+            name: torrentName,
+            filename: fileName
         };
     }
 

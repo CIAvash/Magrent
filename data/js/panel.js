@@ -20,8 +20,8 @@ form.addEventListener('submit', function (e) {
                 escapeHTML(torrentSites[i]) +
                 '/torrent/' +
                 escapeHTML(torrent.hash) +
-                '.torrent" data-name="' +
-                (torrent.name ? escapeHTML(torrent.name) : '') +
+                '.torrent" data-fileName="' +
+                escapeHTML(torrent.filename) +
                 '" data-hash="' +
                 escapeHTML(torrent.hash) +
                 '">' +
@@ -34,7 +34,7 @@ form.addEventListener('submit', function (e) {
                    torrentLinks +
                    '</p></div>');
         // If torrent has a name
-        if(torrent.name)
+        if (torrent.name)
             document.getElementById('torrentName').textContent = decodeURIComponent(torrent.name);
     }
     else {
@@ -48,7 +48,7 @@ result.addEventListener('click', function (e) {
     if (e.target.classList.contains('torrentLink')) {
         let data = e.target.dataset;
         self.port.emit('downloadTorrent', {
-            name: (data.name ? decodeURIComponent(data.name) : data.hash) + '.torrent',
+            name: (data.filename ? decodeURIComponent(data.filename) : data.hash) + '.torrent',
             url: e.target.href
         });
     }
