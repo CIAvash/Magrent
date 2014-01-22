@@ -27,8 +27,8 @@ const magrent = magnet => {
         let magnetName = magNamePattern.exec(magnet);
         let torrentName = '', fileName = '';
         if (magnetName) {
-            torrentName = magnetName[1].replace(/(?:\+|\.)+/g, ' ');
-            fileName = magnetName[1].replace(/[+|:\\/*?<>]+/g, '.');
+            torrentName = magnetName[1].replace(/[+.\-]+/g, ' ');
+            fileName = decodeURIComponent(magnetName[1]).replace(/[+\-|:\\\/*?<>"_ ]+/g, '.');
         }
 
         return {
