@@ -12,31 +12,47 @@ const base16 = new Nibbler({
     keyString: '0123456789ABCDEF'
 });
 
-const magrent = magnet => {
-    // Pattern for matching Bittorrent info hash
-    let hashPattern = /(?:xt=urn:btih:)?([a-f0-9]{40}|[a-z2-7]{32})/i;
-    let hash = hashPattern.exec(magnet);
-    if (hash) {
-        hash[1] = hash[1].toUpperCase();
-        // If hash is base32, converts it to base16
-        if (hash[1].length === 32)
-            hash[1] = base16.encode(base32.decode(hash[1]));
+const magrent = input => {
+    let hash;
+    let torrentName = '';
+    let fileName = '';
+
+    if (/^magnet:\?/i.test(input)) {
+        // Pattern for matching Bittorrent info hash
+        const magnetPattern = /xt=urn:btih:([a-z0-9]+)/i;
+        const hashMatch = magnetPattern.exec(input);
+        if (hashMatch)
+            hash = hashMatch[1];
+        else
+            return false;
 
         // Pattern for matching display name in magnet URI
         let magNamePattern = /dn=(.+?)(?=(?:&\w+=)|$)/m;
-        let magnetName = magNamePattern.exec(magnet);
-        let torrentName = '', fileName = '';
+        let magnetName = magNamePattern.exec(input);        
         if (magnetName) {
             torrentName = magnetName[1].replace(/[+.\-]+/g, ' ');
+            // Replace separators with '.' and make sure it's a valid filename
             fileName = decodeURIComponent(magnetName[1]).replace(/[+\-|:\\\/*?<>"_ ]+/g, '.');
         }
-
-        return {
-            hash: hash[1],
-            name: torrentName,
-            filename: fileName
-        };
+    }
+    else {
+        hash = input;
     }
 
-    return false;
+    
+    hash = hash.toUpperCase();
+
+    if (hash.length === 32 && /[A-Z2-7]{32}/.test(hash)) {
+        // If hash is base32, convert it to base16
+        hash = base16.encode(base32.decode(hash));
+    }
+    else if (!(hash.length === 40 && /[A-F0-9]{40}/.test(hash))) {
+        return false;
+    }
+
+    return {
+        hash: hash,
+        name: torrentName,
+        filename: fileName
+    };
 };
