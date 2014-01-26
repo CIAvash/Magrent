@@ -1,20 +1,20 @@
 {
     "name": "magrent",
-    "license": "MPL 2.0",
+    "license": "GPL 3.0",
     "author": "Siavash Askari Nasr",
-    "version": "0.3.2",
+    "version": "0.4",
     "fullName": "Magrent",
     "id": "jid1-9tZMAIdeuiEjHg",
     "permissions": {
         "private-browsing": true
     },
-    "description": "This add-on converts magnet links and URIs to torrent files. It uses torrent caching sites like Torrage.com for downloading torrent files.",
+    "description": "This add-on converts magnet links and torrent hashes to torrent files. It uses torrent storage services like Torrage.com for downloading torrent files.",
     "preferences": [
         {
             "name": "torrentSource",
             "type": "menulist",
             "title": "Default torrent source",
-            "description": "Will be used in 'Download .torrent file' context menu item",
+            "description": "Will be used in 'Download torrent file' context menu item",
             "value": "torrage.com",
             "options": [
                 {
