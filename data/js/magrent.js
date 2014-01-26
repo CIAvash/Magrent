@@ -61,11 +61,11 @@ const magrent = input => {
     
     hash = hash.toUpperCase();
 
-    if (hash.length === 32 && /[A-Z2-7]{32}/.test(hash)) {
+    if (/^[A-Z2-7]{32}$/.test(hash)) {
         // If hash is base32, convert it to base16
         hash = base16.encode(base32.decode(hash));
     }
-    else if (!(hash.length === 40 && /[A-F0-9]{40}/.test(hash))) {
+    else if (!(/^[A-F0-9]{40}$/.test(hash))) {
         return false;
     }
 
