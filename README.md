@@ -1,9 +1,6 @@
 [Magrent](https://addons.mozilla.org/en-US/firefox/addon/magrent/)
 ==================================================================
 
-Description
------------
-
 Magrent is a Firefox add-on that enables you to convert magnet links and torrent hashes to torrent files.
 It uses torrent storage services like Torrage.com for downloading torrent files.
 
