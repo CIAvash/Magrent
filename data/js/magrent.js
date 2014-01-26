@@ -51,7 +51,7 @@ const magrent = input => {
         if (magnetName) {
             torrentName = magnetName[1].replace(/[+.\-]+/g, ' ');
             // Replace separators with '.' and make sure it's a valid filename
-            fileName = decodeURIComponent(magnetName[1]).replace(/[+\-|:\\\/*?<>"_ ]+/g, '.');
+            fileName = decodeURIComponent(magnetName[1]).replace(/[+\-|:\\\/*?<>"_ .]+/g, '.');
         }
     }
     else {
