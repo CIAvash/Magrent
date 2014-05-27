@@ -43,6 +43,8 @@ form.addEventListener('submit', function (e) {
                 escapeHTML(torrent.filename) +
                 '" data-hash="' +
                 escapeHTML(torrent.hash) +
+                '" data-srcName="' +
+                escapeHTML(torrentSites[i]) +
                 '">' +
                 escapeHTML(torrentSites[i]) +
                 '</a>\n';
@@ -68,7 +70,8 @@ result.addEventListener('click', function (e) {
         let data = e.target.dataset;
         self.port.emit('downloadTorrent', {
             name: (data.filename ? decodeURIComponent(data.filename) : data.hash) + '.torrent',
-            url: e.target.href
+            url: e.target.href,
+            srcName: data.srcname
         });
     }
 
