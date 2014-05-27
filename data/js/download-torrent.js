@@ -17,7 +17,7 @@
  * along with Magrent.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-self.on('click', function (node, data) {
+self.on('click', (node, data) => {
     let torrent = magrent(node.href);
     if (torrent) {
         self.postMessage({

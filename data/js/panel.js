@@ -26,7 +26,7 @@ let showResult = output => {
     result.innerHTML = output;
 };
 
-form.addEventListener('submit', function (e) {
+form.addEventListener('submit', e => {
     let magnet = magnetInput.value;
     let torrent = magrent(magnet);
     if (torrent) {
@@ -65,7 +65,7 @@ form.addEventListener('submit', function (e) {
     e.preventDefault();
 });
 
-result.addEventListener('click', function (e) {
+result.addEventListener('click', e => {
     if (e.target.classList.contains('torrentLink')) {
         let data = e.target.dataset;
         self.port.emit('downloadTorrent', {
@@ -78,13 +78,11 @@ result.addEventListener('click', function (e) {
     e.preventDefault();
 });
 
-self.port.on('convert', function (magnet) {
+self.port.on('convert', magnet => {
     if (magnetInput.value !== magnet) {
         magnetInput.value = magnet;
         submitBtn.click();
     }
 });
 
-self.port.on('focus', function () {
-    magnetInput.focus();
-});
+self.port.on('focus', () => magnetInput.focus());
