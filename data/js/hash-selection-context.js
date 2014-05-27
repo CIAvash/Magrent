@@ -17,13 +17,11 @@
  * along with Magrent.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-self.on('click', (node, data) => {
-    let torrent = magrent(node.href);
-    if (torrent) {
-        self.postMessage({
-            name: (torrent.filename ? decodeURIComponent(torrent.filename) : torrent.hash) + '.torrent',
-            url: 'http://' + data + '/torrent/' + torrent.hash + '.torrent',
-            srcName: data
-        });
-    }
+self.on('context', () => {
+    let hash = window.getSelection().toString();
+
+    if ((hash.length === 40 || hash.length === 32) && /\b(?:[A-Z2-7]{32}|[A-F0-9]{40})\b/i.test(hash))
+        return true;
+    else
+        return false;
 });
