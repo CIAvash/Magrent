@@ -27,27 +27,59 @@ let showResult = output => {
 };
 
 form.addEventListener('submit', e => {
-    let magnet = magnetInput.value;
-    let torrent = magrent(magnet);
+    let torrent;
+    let input = magnetInput.value;
+    let srcIsPiratebay = /.*thepiratebay\.[^.]*?\/torrent\/\d+(\/.*)?/.test(input);
+
+    if (srcIsPiratebay)
+        torrent = piratebayTorrent(input);
+    else
+        torrent = magrent(input);
+
     if (torrent) {
-        // List of torrent cache services
-        let torrentSites = ['torrage.com', 'zoink.it', 'torcache.net'];
         let torrentLinks = '';
-        // Building torrent download links
-        for (let i=0, sitesCount=torrentSites.length; i<sitesCount; i++) {
-            torrentLinks += '<a target="_blank" class="torrentLink" href="http://' +
-                escapeHTML(torrentSites[i]) +
-                '/torrent/' +
+
+        if (srcIsPiratebay) {
+            let srcName = 'piratebaytorrents.info';
+            let torrentName = torrent.filename ? torrent.filename : torrent.hash;
+
+            torrentLinks = '<a target="_blank" class="torrentLink" href="http://' +
+                escapeHTML(srcName) +
+                '/' +
                 escapeHTML(torrent.hash) +
+                '/' +
+                escapeHTML(torrentName) +
                 '.torrent" data-fileName="' +
-                escapeHTML(torrent.filename) +
+                escapeHTML(torrentName) +
                 '" data-hash="' +
                 escapeHTML(torrent.hash) +
                 '" data-srcName="' +
-                escapeHTML(torrentSites[i]) +
+                escapeHTML(srcName) +
                 '">' +
-                escapeHTML(torrentSites[i]) +
+                escapeHTML(srcName) +
                 '</a>\n';
+                
+        }
+        else {
+            // List of torrent cache services
+            let torrentSites = ['torrage.com', 'zoink.it', 'torcache.net'];
+
+            // Building torrent download links
+            for (let i=0, sitesCount=torrentSites.length; i<sitesCount; i++) {
+                torrentLinks += '<a target="_blank" class="torrentLink" href="http://' +
+                    escapeHTML(torrentSites[i]) +
+                    '/torrent/' +
+                    escapeHTML(torrent.hash) +
+                    '.torrent" data-fileName="' +
+                    escapeHTML(torrent.filename) +
+                    '" data-hash="' +
+                    escapeHTML(torrent.hash) +
+                    '" data-srcName="' +
+                    escapeHTML(torrentSites[i]) +
+                    '">' +
+                    escapeHTML(torrentSites[i]) +
+                    '</a>\n';
+            }
         }
         showResult('<div class="fade-in"><p>' +
                    (!torrent.name ? '.torrent file' : '<span id="torrentName"></span>') +
@@ -59,7 +91,7 @@ form.addEventListener('submit', e => {
             document.getElementById('torrentName').textContent = decodeURIComponent(torrent.name);
     }
     else {
-        showResult('<p class="fade-in">Enter a valid hash or Magnet URI</p>');
+        showResult('<p class="fade-in">Enter a valid Magnet URI, Hash or Piratebay URL</p>');
     }
 
     e.preventDefault();
@@ -68,11 +100,8 @@ form.addEventListener('submit', e => {
 result.addEventListener('click', e => {
     if (e.target.classList.contains('torrentLink')) {
         let data = e.target.dataset;
-        self.port.emit('downloadTorrent', {
-            name: (data.filename ? decodeURIComponent(data.filename) : data.hash) + '.torrent',
-            url: e.target.href,
-            srcName: data.srcname
-        });
+        data.url = e.target.href;
+        sendDownloadMessage(data, data.srcname, 'panel');
     }
 
     e.preventDefault();

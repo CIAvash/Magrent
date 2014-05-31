@@ -17,13 +17,41 @@
  * along with Magrent.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-function sendDownloadMessage(data, srcName) {
-    let torrent = magrent(data);
+const sendDownloadMessage = (data, srcName, type) => {
+    let torrent;
+
+    // Create torrent object
+    if (type === 'magnet')
+        torrent = magrent(data);
+    else if (type === 'piratebay')
+        torrent = piratebayTorrent(data);
+    else if (type === 'panel')
+        torrent = data;
+    
     if (torrent) {
-        self.postMessage({
+        // Create download object
+        let download = {
             name: (torrent.filename ? decodeURIComponent(torrent.filename) : torrent.hash) + '.torrent',
-            url: 'http://' + srcName + '/torrent/' + torrent.hash + '.torrent',
             srcName: srcName
-        });
+        };
+
+        // Create download url based on type of source
+        if (type === 'magnet') {
+            download.url = 'http://' + srcName + '/torrent/' + torrent.hash + '.torrent';
+        }
+        else if (type === 'piratebay') {
+            download.url =
+                'http://' + srcName + '/' + torrent.hash + '/' +
+                (torrent.filename ? torrent.filename : torrent.hash) + '.torrent';
+        }
+        else if (type === 'panel') {
+            download.url = torrent.url;
+        }
+
+        // Send the message
+        if (type === 'panel')
+            self.port.emit('downloadTorrent', download);
+        else
+            self.postMessage(download);
     }
-}
+};

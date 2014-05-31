@@ -33,8 +33,7 @@ const base16 = new Nibbler({
 
 const magrent = input => {
     let hash;
-    let torrentName = '';
-    let fileName = '';
+    let torrentNames = { name: '', filename: '' };
 
     if (/^magnet:\?/i.test(input)) {
         // Pattern for matching Bittorrent info hash
@@ -47,12 +46,9 @@ const magrent = input => {
 
         // Pattern for matching display name in magnet URI
         let magNamePattern = /dn=(.+?)(?=(?:&\w+=)|$)/m;
-        let magnetName = magNamePattern.exec(input);        
-        if (magnetName) {
-            torrentName = magnetName[1].replace(/[+.\-]+/g, ' ');
-            // Replace separators with '.' and make sure it's a valid filename
-            fileName = decodeURIComponent(magnetName[1]).replace(/[+\-|:\\\/*?<>"_ .]+/g, '.');
-        }
+        let magnetName = magNamePattern.exec(input);
+        if (magnetName)
+            torrentNames = createCleanNames(magnetName[1]);
     }
     else {
         hash = input;
@@ -61,17 +57,17 @@ const magrent = input => {
     
     hash = hash.toUpperCase();
 
-    if (/\b[A-Z2-7]{32}\b/.test(hash)) {
+    if (hash.length === 32 && /\b[A-Z2-7]{32}\b/.test(hash)) {
         // If hash is base32, convert it to base16
         hash = base16.encode(base32.decode(hash));
     }
-    else if (!(/\b[A-F0-9]{40}\b/.test(hash))) {
+    else if (!(hash.length === 40 && (/\b[A-F0-9]{40}\b/.test(hash)))) {
         return false;
     }
 
     return {
         hash: hash,
-        name: torrentName,
-        filename: fileName
+        name: torrentNames.name,
+        filename: torrentNames.filename
     };
 };
