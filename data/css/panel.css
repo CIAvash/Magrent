@@ -9,14 +9,14 @@ html {
 }
 
 body {
-    background: linear-gradient(to bottom, #ffffff 0%,#f6f6f6 47%,#ededed 100%) no-repeat;
+    background: #EEE;
     font-family: Arial;
     color: #000;
     overflow: hidden;
 }
 
 #wrapper {
-    margin: 10px 10px 0;
+    margin: 5px 5px 0;
     overflow: hidden;
 }
 
@@ -28,18 +28,23 @@ input {
 input[type=text] {
     width: 450px;
     padding: 5px;
-    color: #EB4823;
-    font-size: 16px;
-    font-weight: bold;
+    color: #666;
+    font-size: 15px;
+    border: 1px solid #6F5C9A;
+    border-radius: 3px;
+}
+input[type=text]:focus {
+    border-color: darkviolet;
 }
 
 input[type=submit] {
-    background: #1dad4f;
+    background: #6F5C9A;
     color: white;
     padding: 6px 3px;
-    font-size: 15px;
-    font-weight: bold;
+    font-size: 14px;
+    /* font-weight: bold; */
     border: 0;
+    border-radius: 3px;
     cursor: pointer;
 }
 
@@ -54,7 +59,7 @@ p {
 }
 
 #torrentName {
-    color: #EB4823;
+    color: #333;
     display: block;
     white-space: nowrap;
     overflow: hidden;
@@ -62,7 +67,7 @@ p {
 }
 
 .torrentLink {
-    color: green;
+    color: darkviolet;
     font-size: 16px;
     font-weight: bold;
     text-decoration: none;
