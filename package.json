@@ -2,13 +2,13 @@
     "name": "magrent",
     "license": "GPL 3.0",
     "author": "Siavash Askari Nasr",
-    "version": "0.4.2",
+    "version": "1.0",
     "fullName": "Magrent",
     "id": "jid1-9tZMAIdeuiEjHg",
     "permissions": {
         "private-browsing": true
     },
-    "description": "This add-on converts magnet links and torrent hashes to torrent files. It uses torrent storage services like Torrage.com for downloading torrent files.",
+    "description": "This add-on converts magnet links, torrent hashes and Piratebay URLs to torrent files. It uses torrent storage services like Torrage.com for downloading torrent files.",
     "preferences": [
         {
             "name": "torrentSource",
