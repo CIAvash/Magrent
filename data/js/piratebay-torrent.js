@@ -18,7 +18,7 @@
  */
 
 const piratebayTorrent = tpbURL => {
-    const tpbTorrentPattern = /^.*thepiratebay\.[^.]*?\/torrent\/(\d+)(?:\/(.*))?$/;
+    const tpbTorrentPattern = /^.*thepiratebay\.[^.]*?\/torrent\/(\d+)(?:\/([^#]*))?/;
     const tpbTorrentMatch = tpbTorrentPattern.exec(tpbURL);
 
     if (tpbTorrentMatch) {
