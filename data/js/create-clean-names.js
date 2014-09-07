@@ -19,10 +19,10 @@
 
 const createCleanNames = name => {
     // Use space as separator for name
-    name = decodeURIComponent(name).replace(/[+\-|:\\\/*?<>"_ .()\[\]]+/g, ' ');
+    name = decodeURIComponent(name).replace(/[+\-|:\\\/*?<>"_ .()\[\]]+/g, ' ').replace(/^\s/, '').replace(/\s$/, '');
     return {
         name: name,
         // Use '.' instead of space as separator for filename
-        filename: name.replace(/ /g, '.').replace(/\.$/, '')
+        filename: name.replace(/ /g, '.')
     };
 };
