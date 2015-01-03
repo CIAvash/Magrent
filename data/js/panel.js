@@ -62,7 +62,7 @@ form.addEventListener('submit', e => {
         }
         else {
             // List of torrent cache services
-            let torrentSites = ['torrage.com', 'zoink.it', 'torcache.net'];
+            let torrentSites = ['torrage.com', 'zoink.it', 'torcache.net', 'thetorrent.org'];
 
             // Building torrent download links
             for (let i=0, sitesCount=torrentSites.length; i<sitesCount; i++) {
