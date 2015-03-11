@@ -22,7 +22,7 @@ You can change the default torrent source from Preferences/Options.
 ## Magrent button and panel
 Clicking on the add-on's button will open a panel for converting magnet URIs, hashes and Piratebay URLs to torrent files. It checks your clipboard content and when it recognizes a magnet URI, hash or Piratebay URL, it will convert them automatically and show the download links.
 
-Download links are from Torrage.com, Zoink.it, Torcache.net and TheTorrent.org.
+Download links are from Torrage.com, Zoink.ch, Torcache.net and TheTorrent.org.
 
 Torrent source for Piratebay URLs is Piratebaytorrents.info.
 
