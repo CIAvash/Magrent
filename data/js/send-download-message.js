@@ -37,7 +37,8 @@ const sendDownloadMessage = (data, srcName, type) => {
 
         // Create download url based on type of source
         if (type === 'magnet') {
-            download.url = 'http://' + srcName + '/torrent/' + torrent.hash + '.torrent';
+            download.url = 'http' + (srcName === 'zoink.ch' ? 's' : '')  + '://' +
+                srcName + '/torrent/' + torrent.hash + '.torrent';
         }
         else if (type === 'piratebay') {
             download.url =
