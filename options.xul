@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+<vbox xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <setting data-jetpack-id="jid1-9tZMAIdeuiEjHg@jetpack" pref="extensions.jid1-9tZMAIdeuiEjHg@jetpack.torrentSource" pref-name="torrentSource" title="Default torrent source" type="menulist">
+    Will be used in 'Download torrent file' context menu item
+    <menulist>
+      <menupopup>
+        <menuitem label="Torrage.com" value="torrage.com"/>
+        <menuitem label="Zoink.ch" value="zoink.ch"/>
+        <menuitem label="Torcache.net" value="torcache.net"/>
+        <menuitem label="TheTorrent.org" value="thetorrent.org"/>
+      </menupopup>
+    </menulist>
+  </setting>
+  <setting  data-jetpack-id="jid1-9tZMAIdeuiEjHg@jetpack" title="Save to" type="control">
+	  <setting id="magrentDestDir" data-jetpack-id="jid1-9tZMAIdeuiEjHg@jetpack" pref="extensions.jid1-9tZMAIdeuiEjHg@jetpack.destDir" pref-name="destDir" type="string" style="border: 0 solid transparent !important;"/>
+		<button data-jetpack-id="jid1-9tZMAIdeuiEjHg@jetpack" label="Browse" oncommand="
+				var fp = Components.classes['@mozilla.org/filepicker;1'].createInstance(Components.interfaces.nsIFilePicker),
+				    destDir = document.getElementById('magrentDestDir'),
+				    pref = Services.prefs.getBranch('extensions.jid1-9tZMAIdeuiEjHg@jetpack.');
+				fp.init(window, '', fp.modeGetFolder);
+				try
+				{
+					fp.displayDirectory = FileUtils.File(destDir.value);
+				}
+				catch(e){}
+				var rv = fp.show();
+				if (rv == fp.returnOK || rv == fp.returnReplace)
+				{
+					var str = Cc['@mozilla.org/supports-string;1'].createInstance(Ci.nsISupportsString);
+					str.data = fp.file.path;
+					pref.setComplexValue('destDir', Ci.nsISupportsString, str);
+
+				}
+"/>
+    Leave blank to use browser's settings
+  </setting>
+</vbox>
