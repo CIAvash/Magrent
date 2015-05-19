@@ -62,12 +62,11 @@ form.addEventListener('submit', e => {
         }
         else {
             // List of torrent cache services
-            let torrentSites = ['torrage.com', 'zoink.ch', 'torcache.net', 'thetorrent.org'];
+            let torrentSites = ['torrage.com', 'torcache.net', 'thetorrent.org'];
 
             // Building torrent download links
             for (let i=0, sitesCount=torrentSites.length; i<sitesCount; i++) {
-                torrentLinks += '<a target="_blank" class="torrentLink" href="' +
-                    'http' + (torrentSites[i] === 'zoink.ch' ? 's' : '')  + '://' +
+                torrentLinks += '<a target="_blank" class="torrentLink" href="http://' +
                     escapeHTML(torrentSites[i]) +
                     '/torrent/' +
                     escapeHTML(torrent.hash) +
