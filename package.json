@@ -15,7 +15,7 @@
             "type": "menulist",
             "title": "Default torrent source",
             "description": "Will be used in 'Download torrent file' context menu item",
-            "value": "torcache.net",
+            "value": "torrage.com",
             "options": [
                 {
                     "value": "torrage.com",
