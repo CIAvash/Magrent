@@ -66,7 +66,7 @@ form.addEventListener('submit', e => {
 
             // Building torrent download links
             for (let i=0, sitesCount=torrentSites.length; i<sitesCount; i++) {
-                torrentLinks += '<a target="_blank" class="torrentLink" href="http://' +
+                torrentLinks += '<a target="_blank" class="torrentLink" href="https://' +
                     escapeHTML(torrentSites[i]) +
                     '/torrent/' +
                     escapeHTML(torrent.hash) +
