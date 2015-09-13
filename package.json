@@ -2,7 +2,7 @@
     "name": "magrent",
     "license": "GPL 3.0",
     "author": "Siavash Askari Nasr",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "fullName": "Magrent",
     "id": "jid1-9tZMAIdeuiEjHg",
     "permissions": {
@@ -15,7 +15,7 @@
             "type": "menulist",
             "title": "Default torrent source",
             "description": "Will be used in 'Download torrent file' context menu item",
-            "value": "torrage.com",
+            "value": "torcache.net",
             "options": [
                 {
                     "value": "torrage.com",
