@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014  Siavash Askari Nasr
+ * Copyright (C) 2014, 2015  Siavash Askari Nasr
  *
  * This file is part of Magrent.
  *
@@ -37,7 +37,7 @@ const sendDownloadMessage = (data, srcName, type) => {
 
         // Create download url based on type of source
         if (type === 'magnet') {
-            download.url = 'https://' + srcName + '/torrent/' + torrent.hash + '.torrent';
+            download.url = generateTorrentUrl(srcName, torrent.hash);
         }
         else if (type === 'piratebay') {
             download.url =

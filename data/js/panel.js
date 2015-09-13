@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014  Siavash Askari Nasr
+ * Copyright (C) 2014, 2015  Siavash Askari Nasr
  *
  * This file is part of Magrent.
  *
@@ -62,15 +62,13 @@ form.addEventListener('submit', e => {
         }
         else {
             // List of torrent cache services
-            let torrentSites = ['torrage.com', 'torcache.net', 'thetorrent.org'];
+            let torrentSites = ['torrage.com', 'torcache.net', 'btcache.me', 'thetorrent.org'];
 
             // Building torrent download links
             for (let i=0, sitesCount=torrentSites.length; i<sitesCount; i++) {
-                torrentLinks += '<a target="_blank" class="torrentLink" href="https://' +
-                    escapeHTML(torrentSites[i]) +
-                    '/torrent/' +
-                    escapeHTML(torrent.hash) +
-                    '.torrent" data-fileName="' +
+                torrentLinks += '<a target="_blank" class="torrentLink" href="' +
+                    generateTorrentUrl(escapeHTML(torrentSites[i]), escapeHTML(torrent.hash)) +
+                    '" data-fileName="' +
                     escapeHTML(torrent.filename) +
                     '" data-hash="' +
                     escapeHTML(torrent.hash) +

@@ -26,6 +26,10 @@
                     "label": "Torcache.net"
                 },
                 {
+                    "value": "btcache.me",
+                    "label": "btcache.me"
+                },
+                {
                     "value": "thetorrent.org",
                     "label": "TheTorrent.org"
                 }
