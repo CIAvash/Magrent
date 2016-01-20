@@ -17,12 +17,15 @@
  * along with Magrent.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const generateTorrentUrl = (torrentHost, torrentHash) => {
+const generateTorrentUrl = (torrentHost, torrentHash, torrentFilename) => {
     let protocol = 'http';
     if (torrentHost === 'torrage.com') protocol = 'https';
 
     let extension = '.torrent';
     if (torrentHost === 'btcache.me') extension = '';
+
+    if (torrentFilename && torrentHost === 'torcache.net')
+        extension += '?title=' + torrentFilename;
 
     return protocol + '://' + torrentHost + '/torrent/' + torrentHash + extension;
 };

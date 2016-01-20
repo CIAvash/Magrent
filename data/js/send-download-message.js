@@ -37,7 +37,7 @@ const sendDownloadMessage = (data, srcName, type) => {
 
         // Create download url based on type of source
         if (type === 'magnet') {
-            download.url = generateTorrentUrl(srcName, torrent.hash);
+            download.url = generateTorrentUrl(srcName, torrent.hash, torrent.filename);
         }
         else if (type === 'piratebay') {
             download.url =
