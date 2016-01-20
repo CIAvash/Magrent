@@ -97,14 +97,9 @@ form.addEventListener('submit', e => {
 
 result.addEventListener('click', e => {
     if (e.target.classList.contains('torrentLink')) {
-        if (e.ctrlKey) {
-            self.port.emit('openTab', e.target.href);
-        }
-        else {
-            let data = e.target.dataset;
-            data.url = e.target.href;
-            sendDownloadMessage(data, data.srcname, 'panel');
-        }
+        let data = e.target.dataset;
+        data.url = e.target.href;
+        sendDownloadMessage(data, data.srcname, 'panel');
     }
 
     e.preventDefault();
